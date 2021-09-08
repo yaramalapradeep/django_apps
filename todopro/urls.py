@@ -23,4 +23,6 @@ urlpatterns = [
     path('login/',views.loginview,name='login'),
     path('logout/',views.logoutview,name='logout'),
     path('list/',views.listview,name='list'),
+    path('update/<int:id>/',views.update_view,name='update'),
+    path('delete/<int:id>/',views.delete_view,name='delete'),
 ]

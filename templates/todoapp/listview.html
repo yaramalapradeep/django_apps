@@ -1,4 +1,53 @@
-{% extends 'todoapp/home.html' %}
+{% extends 'todoapp/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'css/demo.css' %}">
 {% block content %}
+<div class="container">
+<form method='post'>
 {{form.as_p}}
+{% csrf_token %}
+<button type="submit" class="btn btn-success">ADD TASK</button>
+</form>
+</div>
+<table>
+  <tr>
+    <th>TITLE</th>
+    <th>Description</th>
+    <th>STATUS</th>
+    <th>update</th>
+    <th>delete</th>
+   </tr>
+<br><br><br><br>
+{% for todo in tdata %}
+
+<tr>
+<td>{{todo.title}}</td>
+<td>{{todo.details}}</td>
+<td>{{todo.status}} </td>
+<td><a href="/update/{{todo.id}}" class='btn btn-warning'>Update</a></td>
+<td><a href="/delete/{{todo.id}}" class='btn btn-danger'>Delete</a></td>
+</tr>
+
+{% endfor %}
+</table>
+<br><br><br><br>
+<table center border="1px">
+  <tr>
+    <th>TITLE</th>
+    <th>Description</th>
+    <th>STATUS</th>
+   </tr>
+
+{% for todo in data %}
+
+<tr>
+<td>{{todo.title}}</td>
+<td>{{todo.details}}</td>
+<td>{{todo.status}} </td>
+</tr>
+
+{% endfor %}
+</table>
+<br><br>
+
 {% endblock %}

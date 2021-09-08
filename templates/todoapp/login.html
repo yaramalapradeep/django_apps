@@ -2,6 +2,21 @@
 {% extends 'todoapp/home.html' %}
 
 {% block content %}
-    {{form.as_p}}
-    {{AddForm.as_p}}
+<center> <h3>Login Form</h3></center>
+
+<div class="container">
+<form method='post' >
+<center>
+    {{lform.as_p}}
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-success">Login</button>
+    <button type="reset" class="btn btn-danger">clear</button><br>
+     <input type="checkbox" checked="checked" name="remember"> Remember me &nbsp;&nbsp;
+     <span class="psw">Forgot <a href="#">password?</a></span>
+
+  <center>
+  </form>
+  </div>
+
 {% endblock %}
