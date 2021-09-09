@@ -13,7 +13,8 @@ DJANGO
 
 
 
-![signup_2](https://user-images.githubusercontent.com/90304655/132746299-de06bef0-c1a2-45bd-a2ae-7a9c1850acc5.PNG)
+![signup_2](https://user-images.githubusercontent.com/90304655/132747841-f7fca70b-cdeb-4acd-bb04-a474278e9a8a.PNG)
+
 
 
 
