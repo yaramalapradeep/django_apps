@@ -1,4 +1,5 @@
 {% extends 'todoapp/base.html' %}
+
 {% load static %}
 <link rel="stylesheet" href="{% static ' css/demo.css' %}">
 {% block content %}
@@ -10,18 +11,37 @@
 {% endif %}
 
 
-<h3>To-dolist</h3>
+<center><h3>To-do List</h3></center>
 {% for todo in sdata %}
 
 <ul>
-<li>Title:{{todo.title|title}}</li>
+<li><b>Title:    </b>{{todo.title|title}}</li>
 
 </ul>
 
+{% endfor %}
+
+{% for contact in sdata %}
+
+    {{ sdata.title|upper }}<br>
 
 {% endfor %}
 
+<div class="pagination">
+    <span class="step-links">
+        {% if sdata.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
 
+        <span class="current">
+            Page {{ sdata.number }} of {{ sdata.paginator.num_pages }}.
+        </span>
 
-
+        {% if sdata.has_next %}
+            <a href="?page={{ sdata.next_page_number }}">next</a>
+            <a href="?page={{ sdata.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}

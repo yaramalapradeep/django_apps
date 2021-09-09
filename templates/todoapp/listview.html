@@ -9,45 +9,26 @@
 <button type="submit" class="btn btn-success">ADD TASK</button>
 </form>
 </div>
-<table>
-  <tr>
-    <th>TITLE</th>
-    <th>Description</th>
-    <th>STATUS</th>
-    <th>update</th>
-    <th>delete</th>
-   </tr>
-<br><br><br><br>
+<center><h3>List of items</h3></center>
+
 {% for todo in tdata %}
 
-<tr>
-<td>{{todo.title}}</td>
-<td>{{todo.details}}</td>
-<td>{{todo.status}} </td>
-<td><a href="/update/{{todo.id}}" class='btn btn-warning'>Update</a></td>
-<td><a href="/delete/{{todo.id}}" class='btn btn-danger'>Delete</a></td>
-</tr>
+<ul>
+<li><b>Title: </b>{{todo.title}}</li>
+<li><b>Description: </b>{{todo.details}}</li>
+<li><b>Status: </b>{{todo.status}} </li>
+<a href="/update/{{todo.id}}" class='btn btn-warning'>Update</a>
+<a href="/delete/{{todo.id}}" class='btn btn-danger'>Delete</a>
+</ul>
 
 {% endfor %}
-</table>
-<br><br><br><br>
-<table center border="1px">
-  <tr>
-    <th>TITLE</th>
-    <th>Description</th>
-    <th>STATUS</th>
-   </tr>
 
-{% for todo in data %}
+<center><h3>Complted Tasks</h1></center>
 
-<tr>
-<td>{{todo.title}}</td>
-<td>{{todo.details}}</td>
-<td>{{todo.status}} </td>
-</tr>
-
+{% for todo in ddata %}
+<ul>
+<li><b>Title: </b>   {{todo.title|title}}</li>
+</ul>
 {% endfor %}
-</table>
-<br><br>
 
 {% endblock %}

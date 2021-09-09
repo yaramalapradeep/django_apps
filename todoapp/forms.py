@@ -7,7 +7,7 @@ class LoginForm(forms.Form):
 class AddForm(forms.Form):
     STATUS_CHOICES =(
     ("START", "START"),
-    ("PROGRESS", "PROGRESS"),
+    ("IN-PROGRESS", "IN-PROGRESS"),
     ("DONE", "DONE"),
     )
 
@@ -17,7 +17,7 @@ class AddForm(forms.Form):
 class UpdateForm(forms.Form):
     STATUS_CHOICES =(
     ("START", "START"),
-    ("PROGRESS", "PROGRESS"),
+    ("IN-PROGRESS", "IN-PROGRESS"),
     ("DONE", "DONE"),
     )
     status=forms.ChoiceField(choices = STATUS_CHOICES)

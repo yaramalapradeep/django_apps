@@ -1,12 +1,22 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from todoapp.forms import LoginForm,AddForm,AddForm,UpdateForm
 from todoapp.models import TodoList
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 # Create your views here.
-
+@login_required (login_url='/login')
 def home(request):
     sdata=TodoList.objects.filter(status='START')
+    paginator=Paginator(sdata,5)
+    page_number = request.GET.get('page')
+
+    try:
+        sdata=paginator.page(page_number)
+    except PageNotAnInteger:
+        sdata=paginator.page(1)
+    except EmptyPage:
+        sdata=paginator.page(paginator.num_pages)
     return render(request,'todoapp/home.html',{'sdata':sdata})
 from django.contrib.auth import authenticate,logout,login
 
@@ -30,6 +40,7 @@ def loginview(request):
 def listview(request):
     form=AddForm()
     tdata=TodoList.objects.all()
+    ddata=TodoList.objects.filter(status='DONE')
     if request.method=='POST':
         form=AddForm(request.POST)
         if form.is_valid():
@@ -43,9 +54,9 @@ def listview(request):
             )
             rdata.save()
             form=AddForm()
-            return render(request,'todoapp/listview.html',{'form':form,'tdata':tdata})
+            return render(request,'todoapp/listview.html',{'form':form,'tdata':tdata,'ddata':ddata})
 
-    return render(request,'todoapp/listview.html',{'form':form,'tdata':tdata})
+    return render(request,'todoapp/listview.html',{'form':form,'tdata':tdata,'ddata':ddata})
 
 # update view for details
 @login_required(login_url='/login')

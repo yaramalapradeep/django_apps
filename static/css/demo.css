@@ -9,12 +9,23 @@ label,span,input
   h1,h3{
   background-color: pink;
 }
-
+b{
+  color:red;
+}
 
 li{
-  color:green;
+  color:#3210eb;
 
 }
 body {
   background: radial-gradient(circle, black, white);
+}
+
+ol
+{
+  color: blue;
+}
+
+.current{
+  color:red;
 }
