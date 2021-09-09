@@ -1,27 +1,27 @@
 {% extends 'todoapp/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static ' css/demo.css' %}">
 {% block content %}
 
-<table >
-  <tr>
-    <th>TITLE</th>
-    <th>Description</th>
-    <th>STATUS</th>
-    <th>update</th>
-    <th>delete</th>
-   </tr>
-<br><br><br><br>
+
+{% if request.user.is_authenticated %}:
+    <center><h1> Welcome to todo app {{request.user}}.....!</h1></center>
+
+{% endif %}
+
+
+<h3>To-dolist</h3>
 {% for todo in sdata %}
 
-<tr>
-<td>{{todo.title}}</td>
-<td>{{todo.details}}</td>
-<td>{{todo.status}} </td>
-<td><a>update</a></td>
-<td><a>delete</a></td>
-</tr>
+<ul>
+<li>Title:{{todo.title|title}}</li>
+
+</ul>
+
 
 {% endfor %}
-</table>
+
+
 
 
 {% endblock %}

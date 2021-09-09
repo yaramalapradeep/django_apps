@@ -2,15 +2,31 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from todoapp.forms import LoginForm,AddForm,AddForm,UpdateForm
 from todoapp.models import TodoList
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 def home(request):
     sdata=TodoList.objects.filter(status='START')
     return render(request,'todoapp/home.html',{'sdata':sdata})
+from django.contrib.auth import authenticate,logout,login
 
 def loginview(request):
     lform=LoginForm()
-    return render(request,'todoapp/login.html',{'lform':lform})
+    if request.method=='POST':
+        lform=LoginForm(request.POST)
+        if lform.is_valid():
+            username=request.POST['username']
+            password=request.POST['password']
+            user=authenticate(username=username,password=password)
+            if user is not None:
+                login(request,user)
+                return redirect('/home')
+            else:
+                return redirect('/login')
 
+    lform=LoginForm()
+    return render(request,'todoapp/login.html',{'lform':lform})
+@login_required(login_url='/login')
 def listview(request):
     form=AddForm()
     tdata=TodoList.objects.all()
@@ -32,11 +48,12 @@ def listview(request):
     return render(request,'todoapp/listview.html',{'form':form,'tdata':tdata})
 
 # update view for details
+@login_required(login_url='/login')
 def delete_view(request, id):
     ddata=TodoList.objects.get(id=id)
     ddata.delete()
     return redirect('/list')
-
+@login_required(login_url='/login')
 def update_view(request,id):
     uform=UpdateForm()
     if request.method=='POST':
@@ -50,4 +67,5 @@ def update_view(request,id):
     return render(request,'todoapp/update.html',{'uform':uform})
 
 def logoutview(request):
+    logout(request)
     return render(request,'todoapp/logout.html')

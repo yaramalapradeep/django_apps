@@ -1,6 +1,20 @@
 table, th, td {
-  border: 2px solid black;
+  border: 3px solid black;
 }
-h1{
-  color:blue
+
+label,span,input
+{
+  color: white;
+}
+  h1,h3{
+  background-color: pink;
+}
+
+
+li{
+  color:green;
+
+}
+body {
+  background: radial-gradient(circle, black, white);
 }
