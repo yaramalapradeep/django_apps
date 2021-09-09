@@ -9,7 +9,7 @@ label,span,input
   h1,h3{
   background-color: pink;
 }
-b{
+a,b{
   color:red;
 }
 
@@ -21,7 +21,7 @@ body {
   background: radial-gradient(circle, black, white);
 }
 
-ol
+ol,form
 {
   color: blue;
 }

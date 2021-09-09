@@ -6,7 +6,7 @@
 
 
 {% if request.user.is_authenticated %}:
-    <center><h1> Welcome to todo app {{request.user}}.....!</h1></center>
+    <center><h1> Welcome to todo app {{request.user.first_name|upper}}.....!</h1></center>
 
 {% endif %}
 
