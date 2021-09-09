@@ -36,5 +36,6 @@ DJANGO
 ![completed_list_7](https://user-images.githubusercontent.com/90304655/132746013-e94fefe4-e874-472d-b2f3-a2cab4573170.PNG)
 
 
+![logout_8](https://user-images.githubusercontent.com/90304655/132750241-0a149fc9-f9fd-4eb1-8fd1-8c507dcd7480.PNG)
 
 
