@@ -9,6 +9,8 @@ CSS
 BOOTSTRAP
 DJANGO
 
+
+This is the home page.It will display all the tasks that are to be done.status of the task is not initiated.We can update the status of the task to (in-progress/done)
 ![login_1](https://user-images.githubusercontent.com/90304655/132745772-024c33f5-f8cc-4f98-ba4d-65a23a34213f.PNG)
 
 
