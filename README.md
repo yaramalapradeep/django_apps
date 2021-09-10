@@ -10,16 +10,16 @@ BOOTSTRAP
 DJANGO
 
 
-This is the home page.It will display all the tasks that are to be done.status of the task is not initiated.We can update the status of the task to (in-progress/done)
+This is the login page, only authenticated users can login to home page
 ![login_1](https://user-images.githubusercontent.com/90304655/132745772-024c33f5-f8cc-4f98-ba4d-65a23a34213f.PNG)
 
 
-
+New users can create an account here by entering the user details. After submitting the form user can login to app
 ![signup_2](https://user-images.githubusercontent.com/90304655/132747841-f7fca70b-cdeb-4acd-bb04-a474278e9a8a.PNG)
 
 
 
-
+This is the home page .It displays all the tasks that are to be done. User can change their own tasks status to in-progress/done state.
 ![home_3](https://user-images.githubusercontent.com/90304655/132749940-6d1e47e1-fb71-44cf-a953-c6eac71bab4d.PNG)
 
 
