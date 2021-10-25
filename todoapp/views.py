@@ -9,7 +9,7 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 @login_required (login_url='/login')
 def home(request):
     sdata=TodoList.objects.filter(status='START')
-    paginator=Paginator(sdata,3)
+    paginator=Paginator(sdata,5)
     page_number = request.GET.get('page')
 
     try:
